@@ -1,6 +1,8 @@
 name: GET UP
 
 on:
+  schedule:
+    - cron: "56 7 * * *"
   workflow_dispatch:
     inputs:
       message:

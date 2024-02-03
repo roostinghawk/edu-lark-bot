@@ -73,8 +73,12 @@ def make_pic_and_save(sentence, bing_cookie):
     images = i.get_images(sentence)
     date_str = pendulum.now().to_date_string()
     new_path = os.path.join("OUT_DIR", date_str)
+    print("new_path 是: " + new_path)
     if not os.path.exists(new_path):
         os.mkdir(new_path)
+        print("new_path 被生成")
+
+    print("保存图片道本地...")
     i.save_images(images, new_path)
     return new_path + "0.jpeg"
 
