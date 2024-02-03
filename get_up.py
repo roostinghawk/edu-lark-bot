@@ -12,7 +12,7 @@ import lark_oapi as lark
 # 1 real get up
 GET_UP_ISSUE_NUMBER = 1
 GET_UP_MESSAGE_TEMPLATE = (
-    "早啊，今天请您欣赏的一句诗是: {sentence} \r\n"
+    "\r\n早啊，今天请您欣赏的一句诗是: \r\n <b> {sentence} \r\n </b>"
 )
 SENTENCE_API = "https://v1.jinrishici.com/all"
 DEFAULT_SENTENCE = "赏花归去马如飞\r\n去马如飞酒力微\r\n酒力微醒时已暮\r\n醒时已暮赏花归\r\n"
@@ -108,13 +108,13 @@ def send_to_lark(message, pic_path, lark_app_key, lark_app_secret, lark_webhook_
 
     # 上传图片
     image_key1 = upload_image_to_lark(pic_path + "/0.jpeg", lark_app_key, lark_app_secret)
-    image_key2 = upload_image_to_lark(pic_path + "/1.jpeg", lark_app_key, lark_app_secret)
-    image_key3 = upload_image_to_lark(pic_path + "/2.jpeg", lark_app_key, lark_app_secret)
-    image_key4 = upload_image_to_lark(pic_path + "/3.jpeg", lark_app_key, lark_app_secret)
+    # image_key2 = upload_image_to_lark(pic_path + "/1.jpeg", lark_app_key, lark_app_secret)
+    # image_key3 = upload_image_to_lark(pic_path + "/2.jpeg", lark_app_key, lark_app_secret)
+    # image_key4 = upload_image_to_lark(pic_path + "/3.jpeg", lark_app_key, lark_app_secret)
     print("image_key1: " + image_key1)
-    print("image_key2: " + image_key2)
-    print("image_key3: " + image_key3)
-    print("image_key4: " + image_key4)
+    # print("image_key2: " + image_key2)
+    # print("image_key3: " + image_key3)
+    # print("image_key4: " + image_key4)
 
     # 构造富文本消息数据
     data = {
@@ -129,18 +129,18 @@ def send_to_lark(message, pic_path, lark_app_key, lark_app_secret, lark_webhook_
                                 "tag": "img",
                                 "image_key": image_key1
                             },
-                            {
-                                "tag": "img",
-                                "image_key": image_key2
-                            },
-                            {
-                                "tag": "img",
-                                "image_key": image_key3
-                            },
-                            {
-                                "tag": "img",
-                                "image_key": image_key4
-                            },
+                            # {
+                            #     "tag": "img",
+                            #     "image_key": image_key2
+                            # },
+                            # {
+                            #     "tag": "img",
+                            #     "image_key": image_key3
+                            # },
+                            # {
+                            #     "tag": "img",
+                            #     "image_key": image_key4
+                            # },
                             {
                                 "tag": "text",
                                 "text": message
