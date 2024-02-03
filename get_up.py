@@ -12,7 +12,7 @@ import lark_oapi as lark
 # 1 real get up
 GET_UP_ISSUE_NUMBER = 1
 GET_UP_MESSAGE_TEMPLATE = (
-    "\r\n早啊，今天请您欣赏的一句诗是: \r\n <b> {sentence} \r\n </b>"
+    "\r\n今天请您欣赏的一句诗是: \r\n \"{sentence}\" \r\n"
 )
 SENTENCE_API = "https://v1.jinrishici.com/all"
 DEFAULT_SENTENCE = "赏花归去马如飞\r\n去马如飞酒力微\r\n酒力微醒时已暮\r\n醒时已暮赏花归\r\n"
@@ -122,7 +122,7 @@ def send_to_lark(message, pic_path, lark_app_key, lark_app_secret, lark_webhook_
         "content": {
             "post": {
                 "zh_cn": {  
-                    "title": "",
+                    "title": "早啊",
                     "content": [
                         [
                             {

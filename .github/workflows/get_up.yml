@@ -2,7 +2,7 @@ name: GET UP
 
 on:
   schedule:
-    - cron: "50 7 * * *"
+    - cron: "30 7 * * *"
   workflow_dispatch:
     inputs:
       message:
