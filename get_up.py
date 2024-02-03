@@ -109,8 +109,8 @@ def send_to_lark(message, pic_path, lark_app_key, lark_app_secret, lark_webhook_
     # 上传图片
     image_key1 = upload_image_to_lark(pic_path + "/0.jpeg", lark_app_key, lark_app_secret)
     image_key2 = upload_image_to_lark(pic_path + "/1.jpeg", lark_app_key, lark_app_secret)
-    image_key3 = upload_image_to_lark(pic_path + "/3.jpeg", lark_app_key, lark_app_secret)
-    image_key4 = upload_image_to_lark(pic_path + "/4.jpeg", lark_app_key, lark_app_secret)
+    image_key3 = upload_image_to_lark(pic_path + "/2.jpeg", lark_app_key, lark_app_secret)
+    image_key4 = upload_image_to_lark(pic_path + "/3.jpeg", lark_app_key, lark_app_secret)
     print("image_key1: " + image_key1)
     print("image_key2: " + image_key2)
     print("image_key3: " + image_key3)
