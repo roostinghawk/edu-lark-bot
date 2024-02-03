@@ -75,10 +75,11 @@ def make_pic_and_save(sentence, bing_cookie):
     new_path = os.path.join("OUT_DIR", date_str)
     print("new_path 是: " + new_path)
     if not os.path.exists(new_path):
+        print("new_path 不存在，准备生成...")
         os.mkdir(new_path)
         print("new_path 被生成")
 
-    print("保存图片道本地...")
+    print("保存图片到本地...")
     i.save_images(images, new_path)
     return new_path + "0.jpeg"
 
