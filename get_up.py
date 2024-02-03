@@ -193,7 +193,8 @@ def main(
     bing_cookie,
     weather_message,
     lark_app_key,
-    lark_app_secret
+    lark_app_secret,
+    lark_webhook_url
 ):
     u = login(github_token)
     repo = u.get_repo(repo_name)
@@ -202,13 +203,13 @@ def main(
     early_message, pic_path = make_get_up_message(
         bing_cookie, up_list
     )
-    body = early_message
+    message = early_message
     if weather_message:
         weather_message = f"现在的天气是{weather_message}\n"
-        body = weather_message + early_message
+        message = weather_message + early_message
     # send to lark
     if lark_app_key and lark_app_secret:
-        send_to_lark(body, pic_path, lark_app_key, lark_app_secret)
+        send_to_lark(message, pic_path, lark_app_key, lark_app_secret, lark_webhook_url)
 
 
 if __name__ == "__main__":
