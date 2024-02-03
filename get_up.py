@@ -81,8 +81,10 @@ def make_pic_and_save(sentence, bing_cookie):
 
 def make_get_up_message(bing_cookie, up_list):
     sentence = get_one_sentence(up_list)
+    pic_path = ""
     try:
         pic_path = make_pic_and_save(sentence, bing_cookie)
+        print("pic path: " + pic_path)
     except Exception as e:
         print(str(e))
         # give it a second chance
