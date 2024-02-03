@@ -82,7 +82,7 @@ def make_pic_and_save(sentence, bing_cookie):
 
     print("保存图片到本地...")
     i.save_images(images, new_path)
-    return new_path + "0.jpeg"
+    return new_path + "/0.jpeg"
 
 
 def make_get_up_message(bing_cookie, up_list):
