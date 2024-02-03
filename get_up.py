@@ -12,7 +12,7 @@ import lark_oapi as lark
 # 1 real get up
 GET_UP_ISSUE_NUMBER = 1
 GET_UP_MESSAGE_TEMPLATE = (
-    "\r\n今天的一句诗:\r\n {sentence} \r\n"
+    "早上好，今天的一句诗: {sentence} \r\n"
 )
 SENTENCE_API = "https://v1.jinrishici.com/all"
 DEFAULT_SENTENCE = "赏花归去马如飞\r\n去马如飞酒力微\r\n酒力微醒时已暮\r\n醒时已暮赏花归\r\n"
@@ -121,12 +121,12 @@ def send_to_lark(message, pic_path, lark_app_key, lark_app_secret, lark_webhook_
                     "content": [
                         [
                             {
-                                "tag": "img",
-                                "image_key": image_key
-                            },
-                            {
                                 "tag": "text",
                                 "text": message
+                            },
+                            {
+                                "tag": "img",
+                                "image_key": image_key
                             }
                         ]
                     ]
@@ -164,8 +164,6 @@ def upload_image_to_lark(pic_path, lark_app_key, lark_app_secret):
 
     response: CreateImageResponse = client.im.v1.image.create(request)
 
-    # print("飞书图片上传是否成功：" + response.success())
-
     # 处理失败返回
     if not response.success():
         lark.logger.error(
@@ -176,24 +174,6 @@ def upload_image_to_lark(pic_path, lark_app_key, lark_app_secret):
     lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
     return response.data.image_key
-
-def image2byte():
-    '''
-    图片转byte
-    image: 必须是PIL格式
-    image_bytes: 二进制
-    '''
-
-    # 创建一个字节流管道
-    img_bytes = io.BytesIO()
-    #把PNG格式转换成的四通道转成RGB的三通道，然后再保存成jpg格式
-    image = image.convert("RGB")
-    # 将图片数据存入字节流管道， format可以按照具体文件的格式填写
-    image.save(img_bytes, format="JPEG")
-    # 从字节流管道中获取二进制
-    image_bytes = img_bytes.getvalue()
-    return image_bytes
-
 
 def main(
     github_token,

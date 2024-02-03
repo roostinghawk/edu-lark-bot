@@ -2,7 +2,7 @@ name: GET UP
 
 on:
   schedule:
-    - cron: "56 7 * * *"
+    - cron: "50 7 * * *"
   workflow_dispatch:
     inputs:
       message:
@@ -27,7 +27,7 @@ jobs:
           pip install -r requirements.txt
       - name: GET UP
         run: |
-          python get_up.py ${{ secrets.G_T }} ${{ github.repository }}  "${{ secrets.BING_COOKIE }}" --weather_message ": ${{ github.event.inputs.message }}" --lark_app_key "${{ secrets.LARK_APP_KEY }}" --lark_app_secret "${{ secrets.LARK_APP_SECRET }}" --lark_webhook_url "${{ secrets.LARK_WEBHOOK_URL }}"
+          python get_up.py ${{ secrets.G_T }} ${{ github.repository }}  "${{ secrets.BING_COOKIE }}" --weather_message "${{ github.event.inputs.message }}" --lark_app_key "${{ secrets.LARK_APP_KEY }}" --lark_app_secret "${{ secrets.LARK_APP_SECRET }}" --lark_webhook_url "${{ secrets.LARK_WEBHOOK_URL }}"
       - name: Push New Pic
         run: |
           git config --local user.email "action@github.com"
