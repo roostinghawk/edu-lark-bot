@@ -1,6 +1,6 @@
 # edu-lark-bot
+爱丁飞书机器人
 
-仓库地址：https://github.com/roostinghawk/edu-lark-bot
 爱丁飞书机器人推送每日诗句及图片的实现原理：
 1. github action 触发每日定时任务；
 2. 请求“今日诗词” api 随机选择一句中国古诗词；
